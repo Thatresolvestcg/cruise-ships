@@ -6,7 +6,7 @@ describe('Ship', () => {
         expect(new Ship()).toBeInstanceOf(Object);
     });
     test('the ship has a starting point', () => {
-        expect(ship.startingPort).toBe('Dover');
+        expect(ship.currentPort).toBe('Dover');
     });
     test('the ship has a name', () => {
         expect(ship.name).toBe('The Unreliable')
@@ -15,12 +15,12 @@ describe('Ship', () => {
 
 describe('Sail', () => {
     const ship = new Ship('The Unreliable', 'Dover');
-    test('Ship can setSail and update startingPort', () => {
+    test('Ship can setSail and update currentPort', () => {
         ship.setSail();
-        expect(ship.startingPort).toBeFalsy();
+        expect(ship.currentPort).toBeFalsy();
     });
     test("Ship can sail to a specific port", () => {
         ship.setSail('Barry Island');
-        expect(ship.startingPort).toEqual('Barry Island');
+        expect(ship.currentPort).toEqual('Barry Island');
     });
 });
