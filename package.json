@@ -1,7 +1,6 @@
 {
   "name": "cruise-ships",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -10,5 +9,14 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^24.9.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thatresolvestcg/cruise-ships.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Thatresolvestcg/cruise-ships/issues"
+  },
+  "homepage": "https://github.com/Thatresolvestcg/cruise-ships#readme",
+  "description": ""
 }
