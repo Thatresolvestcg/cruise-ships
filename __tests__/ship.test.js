@@ -1,20 +1,20 @@
 const Ship = require('../src/ship');
+const Port = require('../src/port');
 
 describe('Ship', () => {
-    const ship = new Ship('The Unreliable', 'Dover');
+    const port = new Port('Dover');
+    const ship = new Ship(port);
     test('New ship can be created and it is an array', () => {
         expect(new Ship()).toBeInstanceOf(Object);
     });
     test('the ship has a starting point', () => {
-        expect(ship.currentPort).toBe('Dover');
+        expect(ship.currentPort).toBe(port);
     });
-    test('the ship has a name', () => {
-        expect(ship.name).toBe('The Unreliable')
-    })
 });
 
 describe('Sail', () => {
-    const ship = new Ship('The Unreliable', 'Dover');
+    const port = new Port('Dover');
+    const ship = new Ship(port);
     test('Ship can setSail and update currentPort', () => {
         ship.setSail();
         expect(ship.currentPort).toBeFalsy();
