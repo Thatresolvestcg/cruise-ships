@@ -10,4 +10,7 @@ function Port(portName) {
     this.portName = portName;
 }
 
-module.exports = Ship;
+module.exports = {
+    Ship,
+    Port
+};
