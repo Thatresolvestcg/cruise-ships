@@ -6,11 +6,4 @@ function Ship(name, currentPort) {
     };
 };
 
-function Port(portName) {
-    this.portName = portName;
-}
-
-module.exports = {
-    Ship,
-    Port
-};
+module.exports = Ship;
