@@ -1,7 +1,7 @@
-class Itiniary {
+class Itinerary {
     constructor(ports) {
         this.ports = ports;
     }
 }
 
-module.exports = Itiniary;
+module.exports = Itinerary;

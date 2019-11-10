@@ -1,10 +1,11 @@
 const Ship = require('../src/ship');
 const Port = require('../src/port');
+const Itinerary = require('../src/itinerary')
 
 describe('Ship', () => {
     const port = new Port('Dover');
     const ship = new Ship(port);
-    test('New ship can be created and it is an array', () => {
+    test('New ship can be created', () => {
         expect(new Ship()).toBeInstanceOf(Object);
     });
     test('the ship has a starting point', () => {
@@ -15,13 +16,12 @@ describe('Ship', () => {
 describe('Sail', () => {
     const port = new Port('Dover');
     const ship = new Ship(port);
-    test('Ship can setSail and update currentPort', () => {
+    test('Ship can setSail', () => {
         ship.setSail();
+
         expect(ship.currentPort).toBeFalsy();
-    });
-    test("Ship can sail to a specific port", () => {
-        ship.setSail('Barry Island');
-        expect(ship.currentPort).toEqual('Barry Island');
+        expect(ship.previousPort).toBe(port);
+
     });
 });
 
