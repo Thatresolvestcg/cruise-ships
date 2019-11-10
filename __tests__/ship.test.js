@@ -18,6 +18,7 @@ describe('Ship', () => {
         ship.setSail();
 
         expect(ship.currentPort).toBeFalsy();
+        expect(ship.previousPort).toBe(port);
     });
 });
 
