@@ -1,37 +1,13 @@
-const Ship = require('../src/ship');
-const Port = require('../src/port');
-const Itinerary = require('../src/itinerary')
+/* globals describe it test expect */
+const Ship = require('../src/Ship.js');
 
 describe('Ship', () => {
-    const port = new Port('Dover');
-    const ship = new Ship(port);
-    test('New ship can be created', () => {
+    test('can be instantiated', () => {
         expect(new Ship()).toBeInstanceOf(Object);
     });
-    test('the ship has a starting point', () => {
-        expect(ship.currentPort).toBe(port);
+    test('has a starting point', () => {
+        const ship = new Ship('Dover');
+
+        expect(ship.startingPort).toBe('Dover');
     });
 });
-
-describe('Sail', () => {
-    const port = new Port('Dover');
-    const ship = new Ship(port);
-    test('Ship can setSail', () => {
-        ship.setSail();
-
-        expect(ship.currentPort).toBeFalsy();
-        expect(ship.previousPort).toBe(port);
-
-    });
-});
-
-describe('Dock', () => {
-    test('can dock at a different port', () => {
-        const dover = new Port('Dover');
-        const ship = new Ship(dover);
-        const calais = new Port('Calais')
-        ship.dock(calais);
-        expect(ship.currentPort).toBe(calais);
-    });
-});
-
