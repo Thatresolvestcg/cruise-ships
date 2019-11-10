@@ -1,5 +1,6 @@
 /* globals describe it test expect */
 const Ship = require('../src/Ship.js');
+const Port = require('../src/Port.js');
 
 describe('Ship', () => {
     test('can be instantiated', () => {
