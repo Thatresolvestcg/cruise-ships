@@ -1,5 +1,5 @@
 const Port = require('../src/Port');
-const Ship = require('../src/Ship');
+const Ship = require('./Ship');
 
 class Itinerary {
     constructor(ports) {
