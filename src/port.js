@@ -8,7 +8,10 @@ class Port {
     addShip(ship) {
         this.ships.push(ship);
     }
-}
+    removeShip() {
+
+    }
+};
 
 
 
