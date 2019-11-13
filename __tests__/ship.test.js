@@ -33,7 +33,7 @@ describe('Ship', () => {
         ship.setSail();
 
         expect(ship.currentPort).toBeFalsy();
-        // expect(ship.previousPort).toBe(port);
+        expect(dover.ships).not.toContain(ship);
     });
     test('cannot sail further than its itinerary', () => {
         const dover = new Port('Dover');
@@ -59,5 +59,6 @@ describe('Dock', () => {
         ship.dock();
 
         expect(ship.currentPort).toBe(calais);
+        expect(calais.ships).toContain(ship);
     });
 });
