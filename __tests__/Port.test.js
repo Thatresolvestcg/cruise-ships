@@ -6,11 +6,8 @@ describe('Port', () => {
     test('can be instantiated', () => {
         expect(new Port()).toBeInstanceOf(Object);
     });
-    test('has a name', () => {
-        const newPort = new Port('Calais')
-    });
     test('can add a ship', () => {
-        const port = new Port('Dover');
+        const port = new Port('Knowhere');
         const ship = {};
 
         port.addShip(ship);
@@ -18,7 +15,7 @@ describe('Port', () => {
         expect(port.ships).toContain(ship);
     });
     test('can remove a ship', () => {
-        const port = new Port('Dover');
+        const port = new Port('Knowhere');
         const sulaco = {};
         const quinJet = {};
 

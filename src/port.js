@@ -8,7 +8,10 @@ class Port {
     addShip(ship) {
         this.ships.push(ship);
     }
-    removeShip() {
+    removeShip(ship) {
+        const remove = this.ships.indexOf(ship);
+        const ships = this.ships;
+        ships.splice(remove, 1);
 
     }
 };
