@@ -17,4 +17,15 @@ describe('Port', () => {
 
         expect(port.ships).toContain(ship);
     });
+    test('can remove a ship', () => {
+        const port = new Port('Dover');
+        const sulaco = {};
+        const quinJet = {};
+
+        port.addShip(sulaco);
+        port.addShip(quinJet);
+        port.removeShip(quinJet);
+
+        expect(port.ships).toEqual([sulaco])
+    })
 }); 
