@@ -11,6 +11,13 @@ describe('Ship', () => {
 
         expect(ship).toBeInstanceOf(Object);
     });
+    test('gets added to port on instantiation', () => {
+        const nowhere = new Port('nowhere');
+        const itinerary = new Itinerary([nowhere]);
+        const ship = new Ship(itinerary);
+
+        expect(nowhere.ships).toContain(ship);
+    });
     test('has a starting point', () => {
         const port = new Port('Dover');
         const itinerary = new Itinerary([port])
