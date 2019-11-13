@@ -8,5 +8,13 @@ describe('Port', () => {
     });
     test('New port has a name', () => {
         expect(port.portName).toBe('Dover')
-    })
+    });
+    test('can add a ship', () => {
+        const port = new Port('Dover');
+        const ship = {};
+
+        port.addShip(ship);
+
+        expect(port.ships).toContain(ship);
+    });
 });
