@@ -1,28 +1,56 @@
-const Ship = require('../src/ship');
+/* globals describe it test expect */
+const Ship = require('../src/Ship.js');
+const Port = require('../src/Port.js');
+const Itinerary = require('../src/Itinerary.js')
 
 describe('Ship', () => {
-    const ship = new Ship('The Unreliable', 'Dover');
-    test('New ship can be created and it is an array', () => {
-        expect(new Ship()).toBeInstanceOf(Object);
-    });
-    test('the ship has a starting point', () => {
-        expect(ship.currentPort).toBe('Dover');
-    });
-    test('the ship has a name', () => {
-        expect(ship.name).toBe('The Unreliable')
-    })
-});
+    test('can be instantiated', () => {
+        const port = new Port('Dover');
+        const itinerary = new Itinerary([port]);
+        const ship = new Ship(itinerary);
 
-describe('Sail', () => {
-    const ship = new Ship('The Unreliable', 'Dover');
-    test('Ship can setSail and update currentPort', () => {
+        expect(ship).toBeInstanceOf(Object);
+    });
+    test('has a starting point', () => {
+        const port = new Port('Dover');
+        const itinerary = new Itinerary([port])
+        const ship = new Ship(itinerary);
+        expect(ship.currentPort).toBe(port);
+    });
+    test('can set sail', () => {
+        const dover = new Port('Dover');
+        const calais = new Port('Calais');
+        const itinerary = new Itinerary([dover, calais]);
+        const ship = new Ship(itinerary);
+
         ship.setSail();
+
         expect(ship.currentPort).toBeFalsy();
+        // expect(ship.previousPort).toBe(port);
     });
-    test("Ship can sail to a specific port", () => {
-        ship.setSail('Barry Island');
-        expect(ship.currentPort).toEqual('Barry Island');
+    test('cannot sail further than its itinerary', () => {
+        const dover = new Port('Dover');
+        const calais = new Port('Calais');
+        const itinerary = new Itinerary([dover, calais]);
+        const ship = new Ship(itinerary);
+
+        ship.setSail();
+        ship.dock();
+
+        expect(() => ship.setSail()).toThrowError('End of itinerary reached.');
     });
 });
 
+describe('Dock', () => {
+    test('can dock at a different port', () => {
+        const dover = new Port('Dover');
+        const calais = new Port('Calais');
+        const itinerary = new Itinerary([dover, calais])
+        const ship = new Ship(itinerary);
 
+        ship.setSail();
+        ship.dock();
+
+        expect(ship.currentPort).toBe(calais);
+    });
+});
