@@ -24,5 +24,15 @@ describe('Port', () => {
         port.removeShip(quinJet);
 
         expect(port.ships).toEqual([sulaco])
-    })
+    });
+    test('throws an error if entry does not exist', () => {
+        const port = new Port('Knowhere');
+        const sulaco = {};
+        const quinJet = {};
+
+        port.addShip(sulaco);
+
+        expect(() => port.removeShip(quinJet)).toThrowError('This entry does not exist');
+
+    });
 }); 

@@ -13,13 +13,10 @@ class Port {
         if (remove == -1) {
             throw new Error('This entry does not exist')
         } else { this.ships.splice(remove, 1); }
-
     }
 };
 
-// if (currentPortIndex === (itinerary.ports.length - 1)) {
-//     throw new Error('End of itinerary reached.');
-// }
+
 
 
 
