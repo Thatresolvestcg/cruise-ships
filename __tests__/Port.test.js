@@ -16,10 +16,10 @@ describe('Port', () => {
     });
     test('can remove a ship', () => {
         const port = new Port('Knowhere');
-        const sulaco = {};
+        const milano = {};
         const quinJet = {};
 
-        port.addShip(sulaco);
+        port.addShip(milano);
         port.addShip(quinJet);
         port.removeShip(quinJet);
 
