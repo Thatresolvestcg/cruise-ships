@@ -8,11 +8,11 @@ describe('Itinerary', () => {
         expect(new Itinerary()).toBeInstanceOf(Object);
     });
     test('can have ports', () => {
-        const dover = new Port('Dover');
-        const calais = new Port('Calais');
+        const knowhere = new Port('Knowhere');
+        const wakanda = new Port('Wakanda');
 
-        const itinerary = new Itinerary([dover, calais]);
+        const itinerary = new Itinerary([knowhere, wakanda]);
 
-        expect(itinerary.ports).toEqual([dover, calais]);
+        expect(itinerary.ports).toEqual([knowhere, wakanda]);
     });
 });

@@ -23,7 +23,7 @@ describe('Port', () => {
         port.addShip(quinJet);
         port.removeShip(quinJet);
 
-        expect(port.ships).toEqual([sulaco])
+        expect(port.ships).toEqual([milano])
     });
     test('throws an error if entry does not exist', () => {
         const port = new Port('Knowhere');
