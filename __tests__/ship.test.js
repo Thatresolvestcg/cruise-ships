@@ -48,9 +48,6 @@ describe('Ship', () => {
             expect(knowhere.removeShip).toHaveBeenCalledWith(ship);
         });
         test('gets added to port on instantiation', () => {
-            // const itinerary = new Itinerary([knowhere]);
-            // const ship = new Ship(itinerary);
-
             expect(port.addShip).toHaveBeenCalledWith(ship);
         });
     })
