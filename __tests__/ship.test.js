@@ -9,9 +9,22 @@ describe('Ship', () => {
         let knowhere;
         let wakanda;
         let itinerary;
+        let port;
         beforeEach(() => {
-            wakanda = new Port('Wakanda');
-            knowhere = new Port('Knowhere');
+            port = {
+                removeShip: jest.fn(),
+                addShip: jest.fn(),
+            };
+            wakanda = {
+                ...port,
+                name: 'Wakanda',
+                ships: []
+            };
+            knowhere = {
+                ...port,
+                name: 'Knowhere',
+                ships: []
+            };
             itinerary = new Itinerary([wakanda, knowhere]);
             ship = new Ship(itinerary);
         });
@@ -32,13 +45,13 @@ describe('Ship', () => {
             ship.setSail();
 
             expect(ship.currentPort).toBeFalsy();
-            expect(knowhere.ships).not.toContain(ship);
+            expect(knowhere.removeShip).toHaveBeenCalledWith(ship);
         });
         test('gets added to port on instantiation', () => {
-            const itinerary = new Itinerary([knowhere]);
-            const ship = new Ship(itinerary);
+            // const itinerary = new Itinerary([knowhere]);
+            // const ship = new Ship(itinerary);
 
-            expect(knowhere.ships).toContain(ship);
+            expect(port.addShip).toHaveBeenCalledWith(ship);
         });
     })
     test('cannot sail further than its itinerary', () => {
