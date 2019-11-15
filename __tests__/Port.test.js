@@ -10,7 +10,7 @@ describe('Port', () => {
         let quinJet;
         beforeEach(() => {
             port = new Port('Knowhere');
-            ship = {}
+            ship = jest.fn();
             milano = {}
             quinJet = {}
         });
